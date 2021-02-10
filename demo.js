@@ -51,7 +51,7 @@ function init() {
 function createList(count, name) {
     for (var c = 0; c < count; c++) {
         additem_todo(name);
-    } 
+    }
 }
 
 function additem_whenenter(e) {
@@ -93,6 +93,7 @@ function additem_todo(flag) {
     }
     else {
         var itemContent = document.getElementById("itemname");
+        if (!itemContent.value) return;
         todo.push(itemContent.value);
         save_list();
         span.innerHTML = itemContent.value;
@@ -172,7 +173,6 @@ function additem_todo(flag) {
             span.removeChild(form);
             todo = change_item(data, text.value, todo);
             todone = change_item(data, text.value, todone);
-            console.log(todo)
             save_list();
             data = text.value;
             span.innerHTML = data;
